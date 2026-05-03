@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Mitul 🌸</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/jpeg" href="mitul.jpg">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Georgia', serif;
+    }
+
+    body {
+        height: 100vh;
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+                    url('mitul.jpg'); /* Replace with her image */
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        text-align: center;
+    }
+
+    .container {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 40px;
+        border-radius: 20px;
+        width: 80%;
+        max-width: 600px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    }
+
+    h1 {
+        margin-bottom: 20px;
+        font-size: 28px;
+        color: #f5c6ec;
+    }
+
+    #quote {
+        font-size: 20px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    #author {
+        font-size: 16px;
+        color: #ddd;
+        margin-bottom: 25px;
+    }
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 25px;
+        background: #ff6ec7;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #ff3ca6;
+        transform: scale(1.05);
+    }
+
+    .footer {
+        margin-top: 15px;
+        font-size: 14px;
+        color: #bbb;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>For Mitul 🌷</h1>
+
+    <p id="quote"></p>
+    <p id="author"></p>
+
+    <button onclick="nextQuote()">More ✨</button>
+
+    <div class="footer">From the same beginning, now written in different chapters.</div>
+</div>
+
+<script>
+const quotes = [
+    { text: "I have loved the stars too fondly to be fearful of the night.", author: "— Sarah Williams" },
+    { text: "Whatever our souls are made of, his and mine are the same.", author: "— Emily Brontë" },
+    { text: "You are every reason, every hope, and every dream I’ve ever had.", author: "— Nicholas Sparks" },
+    { text: "Shall I compare thee to a summer’s day? Thou art more lovely and more temperate.", author: "— William Shakespeare" },
+    { text: "In all the world, there is no heart for me like yours.", author: "— Maya Angelou" },
+    { text: "She was a wildflower in love with the sun.", author: "— Atticus" },
+    { text: "If I know what love is, it is because of you.", author: "— Hermann Hesse" },
+    { text: "You have bewitched me, body and soul.", author: "— Jane Austen" },
+    { text: "Love looks not with the eyes, but with the mind.", author: "— William Shakespeare" },
+    { text: "I carry your heart with me (I carry it in my heart).", author: "— E.E. Cummings" },
+    { text: "To love and be loved is to feel the sun from both sides.", author: "— David Viscott" },
+    { text: "You are my sun, my moon, and all my stars.", author: "— E.E. Cummings" },
+    { text: "The best thing to hold onto in life is each other.", author: "— Audrey Hepburn" },
+    { text: "I wish I knew how to quit you.", author: "— Annie Proulx" },
+    { text: "I look at you and see the rest of my life in front of my eyes.", author: "— Unknown" },
+    { text: "You are the poem I never knew how to write.", author: "— Tyler Knott Gregson" },
+    { text: "I want to do with you what spring does with the cherry trees.", author: "— Pablo Neruda" },
+    { text: "Every love story is beautiful, but ours is my favorite.", author: "— Unknown" },
+    { text: "You make me want to be a better man.", author: "— As Good As It Gets" },
+    { text: "In your light, I learn how to love.", author: "— Rumi" },
+    { text: "I saw that you were perfect, and so I loved you.", author: "— Angelita Lim" },
+    { text: "Where there is love there is life.", author: "— Mahatma Gandhi" }
+];
+
+let currentIndex = 0;
+
+// Shuffle (Fisher-Yates)
+function shuffleQuotes(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+// Show next quote
+function nextQuote() {
+    if (currentIndex >= quotes.length) {
+        shuffleQuotes(quotes);
+        currentIndex = 0;
+    }
+
+    document.getElementById("quote").innerText = quotes[currentIndex].text;
+    document.getElementById("author").innerText = quotes[currentIndex].author;
+
+    currentIndex++;
+}
+
+// On load
+window.onload = function() {
+    shuffleQuotes(quotes);
+    nextQuote();
+};
+</script>
+
+</body>
+</html>
